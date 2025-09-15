@@ -22,7 +22,7 @@ Place all written answers from `assignment-01.md` here for easier grading.
 
 2. **Algorithm Selection**
 
-## `T(n) = 2 T(n/6) + 1`
+### `T(n) = 2 T(n/6) + 1`
 `a = 2`, `b = 6`, `f(n) = 1`.
 
 Height:
@@ -40,7 +40,7 @@ Total T(n) = O(2^h) = O( 2^{log_6 n} ) = O( n^{log_6 2} ).
 
 The upper bound is O( n^{log_6 2} )
 
-## `T(n) = 6 T(n/4) + n`
+### `T(n) = 6 T(n/4) + n`
 
 `a = 6`, `b = 4`, and `f(n) = n`
 
@@ -59,7 +59,7 @@ T(n) = O( n * (3/2)^{log_4 n} )
 = O( n^{1 + log_4(3/2)} )
 = O( n^{log_4 6} ). 
 
-## `T(n) = 7 T(n/7) + n`
+### `T(n) = 7 T(n/7) + n`
 
 `a = 7`, `b = 7`, `f(n) = n`
 
@@ -77,7 +77,7 @@ Total cost:
 
   The upper bound is O(n log_7 n)
 
-## `T(n) = 9 T(n/4) + n^2`
+### `T(n) = 9 T(n/4) + n^2`
 
 `a = 9`, `b = 4`, and `f(n) = n^2`
 
@@ -92,7 +92,7 @@ Cost(i) = 9^i * O(n^2 / 16^i) = O( n^2 * (9/16)^i )
 
 It's root dominated, therefore, the upper bound is O(n^2)
 
-## `T(n) = 4 T(n/2) + n^3`
+### `T(n) = 4 T(n/2) + n^3`
 
 `a = 4`, `b = 2`, `f(n) = n^3`
 Height:
@@ -103,7 +103,7 @@ Cost per level:
   Hence `Cost(i) = 4^i * O(n^3/8^i) = O(n^3 * (1/2)^i)`.  
   Costs decrease with depth, so it's root-dominated, therefore, the upper bound is O(n^3)
 
-##  `T(n) = 49 T(n/25) + n^{3/2} log n`
+###  `T(n) = 49 T(n/25) + n^{3/2} log n`
 
 `a = 49`, `b = 25`, `f(n) = n^{3/2} log n`.
 
@@ -118,7 +118,7 @@ Cost per level:
 
 The cost is decreasing so it's root-dominated. Therefore, the upper bound is O( n^{3/2} log n ).
 
-## `T(n) = T(n-1) + 2`
+### `T(n) = T(n-1) + 2`
 
 T(n) = T(n-1) + 2
 = T(n-2) + 2 + 2
@@ -127,13 +127,13 @@ T(n) = T(n-1) + 2
 
 Hence the upper bound is T(n)=O(n).
 
-## `T(n) = T(n-1) + n^{c}`  (for constant `c ≥ 1`).
+### `T(n) = T(n-1) + n^{c}`  (for constant `c ≥ 1`).
 
 Use the power-sum bound `∑_{k=1}^n k^c = O(n^{c+1})` (for constant `c ≥ 1`).
 Therefore, the upper bound is `T(n) = O(n^{c+1})`.
 
 
-## `T(n) = T(√n) + 1`
+### `T(n) = T(√n) + 1`
 
 T(n) = T(n^(1/2)) + 1
 = T(n^(1/4)) + 2
