@@ -25,14 +25,14 @@ Place all written answers from `assignment-01.md` here for easier grading.
 # `T(n) = 2 T(n/6) + 1`
 `a = 2`, `b = 6`, `f(n) = 1`.
 
-Height 
+Height" 
 At level `i`, the subproblem size is `n/6^i`. Stop when it reaches 1:
 `n/6^h = 1  ->  h = log_6 n`.
 
-Nodes per level & work per node 
+Nodes per level & work per node" 
 Level `i` has `2^i` nodes, each doing `O(1)` non-recursive work.
 
-Cost per level
+Cost per level:
 `Cost(i) = 2^i * O(1) = O(2^i)`.
 
 It's leaf-dominated, Costs grow with `i` (since `2^i` increases), so the last level (`i = h`) dominates:
@@ -44,11 +44,11 @@ The upper bound is O( n^{log_6 2} )
 
 `a = 6`, `b = 4`, and `f(n) = n`
 
-Height 
+Height: 
   Subproblem size at level `i` is `n/4^i`.  Stop when it is `1`:
   `n/4^h = 1  ->  h = log_4 n`.
 
-Cost per level
+Cost per level:
   Level `i` has `6^i` nodes, each with `O(n/4^i)` work, so
   Cost(i) = 6^i * O(n/4^i) = O( n * (6/4)^i ) = O( n * (3/2)^i ).
 
@@ -63,15 +63,15 @@ T(n) = O( n * (3/2)^{log_4 n} )
 
 `a = 7`, `b = 7`, `f(n) = n`
 
-Height 
+Height: 
   Subproblem size at level `i` is `n / 7^i`.  Stop when it reaches `1`:
   `n / 7^h = 1  ->  h = log_7 n`.
 
-Cost per level
+Cost per level:
   Level `i` has `7^i` nodes, each with non-recursive work `O(n / 7^i)`.  
   Hence `Cost(i) = 7^i * O(n/7^i) = O(n)` (the same at every level).
 
-Total cost  
+Total cost:  
   There are `h+1 = log_7 n + 1` levels, each costing `O(n)`:
   T(n) = O(n) * (log_7 n + 1) = O(n log n).
 
@@ -81,11 +81,11 @@ Total cost
 
 `a = 9`, `b = 4`, and `f(n) = n^2`
 
-Height 
+Height: 
   Subproblem size at level `i` is `n / 4^i`.  
   Stop when it reaches `1`: `n / 4^h = 1  -> h = log_4 n`.
 
-Cost per level
+Cost per level:
   Level `i` has `9^i` nodes. Each node does non-recursive work
 
 Cost(i) = 9^i * O(n^2 / 16^i) = O( n^2 * (9/16)^i )
@@ -95,9 +95,10 @@ It's root dominated, therefore, the upper bound is O(n^2)
 # `T(n) = 4 T(n/2) + n^3`
 
 `a = 4`, `b = 2`, `f(n) = n^3`
-Height
+Height:
   Subproblem size at level `i` is `n/2^i`; stop when `n/2^h = 1` -> `h = log_2 n`.
-Cost per level 
+
+Cost per level: 
   Level `i` has `4^i` nodes; each does `O((n/2^i)^3) = O(n^3/8^i)`.  
   Hence `Cost(i) = 4^i * O(n^3/8^i) = O(n^3 * (1/2)^i)`.  
   Costs decrease with depth, so it's root-dominated, therefore, the upper bound is O(n^3)
@@ -106,9 +107,10 @@ Cost per level
 
 `a = 49`, `b = 25`, `f(n) = n^{3/2} log n`.
 
-Height
+Height:
   Subproblem size at level `i` is `n/25^i`, stop when `n/25^h = 1` -> `h = log_{25} n`.
-Cost per level
+
+Cost per level:
   Level `i` has `49^i` nodes, each contributes
   `f(n/25^i) = (n/25^i)^{3/2} * log(n/25^i)` 
   Cost(i) = 49^i * (n/25^i)^{3/2} * log(n/25^i)
@@ -118,52 +120,28 @@ The cost is decreasing so it's root-dominated. Therefore, the upper bound is O( 
 
 # `T(n) = T(n-1) + 2`
 
-Unroll:
-\[
-T(n)=T(n-1)+2=T(n-2)+2+2=\cdots=T(1)+2(n-1).
-\]
+T(n) = T(n-1) + 2
+= T(n-2) + 2 + 2
+= ...
+= T(1) + 2(n-1)
 
-Hence the upper bound is
-\[
-T(n)=O(n).
-\]
+Hence the upper bound is T(n)=O(n).
 
-# `T(n) = T(n-1) + n^{c}`  (with \(c \ge 1\))
+# `T(n) = T(n-1) + n^{c}`  (for constant `c ≥ 1`).
 
-Unroll:
-\[
-\begin{aligned}
-T(n) &= T(n-1) + n^{c} \\
-     &= T(n-2) + (n-1)^{c} + n^{c} \\
-     &\,\,\vdots \\
-     &= T(1) + \sum_{k=2}^{n} k^{c}.
-\end{aligned}
-\]
+Use the power-sum bound `∑_{k=1}^n k^c = O(n^{c+1})` (for constant `c ≥ 1`).
+Therefore, the upper bound is `T(n) = O(n^{c+1})`.
 
-Using the power–sum bound \(\sum_{k=1}^{n} k^{c} = O(n^{c+1})\) (for constant \(c\ge 1\)),
-\[
-the upper bound is T(n)=O(n^{c+1}).
-\]
 
-# `T(n) = T(\sqrt{n}) + 1`
+# `T(n) = T(√n) + 1`
 
-\[
-T(n) = T(n^{1/2})+1 = T(n^{1/4})+2 = \cdots = T\!\left(n^{(1/2)^k}\right)+k.
-\]
+T(n) = T(n^(1/2)) + 1
+= T(n^(1/4)) + 2
+= ...
+= T(n^( (1/2)^k )) + k
 
-Stop when the argument reaches a constant (say \(\le 2\)):
-\[
-n^{(1/2)^k} \le 2
-\;\Longleftrightarrow\;
-(1/2)^k \le \frac{1}{\log_2 n}
-\;\Longleftrightarrow\;
-k \ge \log_2\!\log_2 n.
-\]
-
-Therefore the upper bound is
-\[
-T(n) = O(\log\log n).
-\]
+Stop when `n^((1/2)^k) ≤ 2` -> `(1/2)^k ≤ 1 / log2(n)` -> `k ≥ log2(log2 n)`.
+Therefore, the upper bound is `T(n) = O(log log n)`
 
 3. **More Algorithm Selection** 
 
