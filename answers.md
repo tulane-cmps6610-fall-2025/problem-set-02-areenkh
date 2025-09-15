@@ -25,11 +25,11 @@ Place all written answers from `assignment-01.md` here for easier grading.
 # `T(n) = 2 T(n/6) + 1`
 `a = 2`, `b = 6`, `f(n) = 1`.
 
-Height" 
+Height:
 At level `i`, the subproblem size is `n/6^i`. Stop when it reaches 1:
 `n/6^h = 1  ->  h = log_6 n`.
 
-Nodes per level & work per node" 
+Nodes per level & work per node:
 Level `i` has `2^i` nodes, each doing `O(1)` non-recursive work.
 
 Cost per level:
