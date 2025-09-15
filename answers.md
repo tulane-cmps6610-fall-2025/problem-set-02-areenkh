@@ -145,7 +145,95 @@ Therefore, the upper bound is `T(n) = O(log log n)`
 
 3. **More Algorithm Selection** 
 
+Algorithm A:  
+W(n) = 2 W(n/5) + n^2
+S(n) = W(n/5) + n^2
+
+a = 2      
+b = 1/5      
+f(n) = O(n^2)
+
+Root cost = O(n^2)          
+children total cost = 2 (n/5)^2
+
+Both span and work are root dominated : O(n^2)
+
+Algorithm B:  
+W(n) = W(n-1) + log n
+S(n) = S(n-1) + log n
+
+size at level i: n - i
+cost at level i: f(n - i) = O( log (n - i) )
+height: O(n)
+
+W(n) = ∑_{i=0}^{n-2} O( log(n - i) ) = ∑_{k=2}^{n} O( log k ) = O( log n! ) = O( n log n )
+(b/c log n! = O(n log n))
+
+S(n) = O(n log n)
+
+Algorithm C:  
+W(n) = W(n/3) + W(2n/3) + n^{1.1}
+S(n) = S(2n/3) + n^{1.1}
+
+Both are root dominated so the span and work are O(n^{1.1})
+
+Which algorithm to choose?
+
+Φ = W/S is O(1) for all three, so we pick the smallest work and span which is algorithm B
+
 4. **Algorithms**
+
+Algorithm A:  
+W(n) = 5 W(n/2) + n
+S(n) = S(n/2) + n
+
+a = 5      
+b = 2      
+f(n) = O(n)
+
+Root cost: O(n)      
+Total children cost: 5 * n / 2
+
+The work is leaf dominated and the span is root dominated.
+
+height:  n / 2^h = 1  ->  h = log_2 n
+
+cost at level i:  5^i * n / 2^i  =  n (5/2)^i =  n (5/2)^{log_2 n}  =  n^{log_2 5}
+
+Work:  O(n^{log_2 5})
+Span:  O(n)
+
+Algorithm B:  
+W(n) = 2 W(n-1) + O(1)
+S(n) = S(n-1) + O(1)
+
+level i: # of nodes = 2^i        
+height = n-1        
+balanced
+
+work at level i: 2^i
+
+∑_{i=0}^{n-1} 2^i = 2^n − 1 = O(2^n)   
+W(n) = O(2^n)      
+S(n) = O(n)
+
+Algorithm C:  
+W(n) = 9 W(n/3) + O(n^2)
+S(n) = S(n/3) + O(n^2)
+
+The work is balanced and the cost remain O(n^2) at each level.
+
+height:  n / 3^h = 1  ->  h = log_3 n
+
+Cost at level i:  O(n^2)
+
+Total cost:  W(n) = O(n^2 log n)
+
+The span is root-dominated since the cost decreases as it goes down, so the span is O(n^2)
+
+Which algorithm to choose?
+
+Algorithm A since it has better work and span and B does exponential work so it definitely can't be B.
  
 5. **Integer Multiplication Timing Results**
 
