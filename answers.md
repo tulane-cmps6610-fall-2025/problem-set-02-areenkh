@@ -8,17 +8,17 @@ Place all written answers from `assignment-01.md` here for easier grading.
 
 1. **Asymptotic notation**
 
-**Upper bound (O(n log n))**
-- For every `k ≤ n`, `log k ≤ log n`.
-- So `∑_{k=1}^n log k ≤ n * log n`.
+**Upper bound ($O(n \log n)$)**
+- For every $k \leq n$, $\log k \leq \log n$.
+- So $\sum_{k=1}^n \log k \leq n \cdot \log n$.
 
-**Lower bound (Ω(n log n))**
-- Look only at the last `n/2` terms: `k = ⌊n/2⌋+1, …, n`.
-- Each of these satisfies `log k ≥ log(n/2) = log n − log 2`.
-- So the sum is at least `(n/2) * (log n − log 2) = Ω(n log n)`.
+**Lower bound ($\Omega(n \log n)$)**
+- Look only at the last $n/2$ terms: $k = \lfloor n/2 \rfloor + 1, \ldots, n$.
+- Each of these satisfies $\log k \geq \log(n/2) = \log n - \log 2$.
+-So, the sum is at least $(n/2) \cdot (\log n - \log 2) = \Omega(n \log n)$.
 
-- We have both an `O(n log n)` upper bound and an `Ω(n log n)` lower bound,
-  hence `log(n!) ∈ Θ(n log n)`.  
+- We have both an $O(n \log n)$ upper bound and an $\Omega(n \log n)$ lower bound,
+  hence $\log(n!) \in \Theta(n \log n)$.
 
 2. **Algorithm Selection**
 
