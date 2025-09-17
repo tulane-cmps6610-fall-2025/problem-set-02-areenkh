@@ -185,7 +185,7 @@ $W(n) = W(n/3) + W(2n/3) + n^{1.1}$
 
 $S(n) = S(2n/3) + n^{1.1}$
 
-Both are root dominated so the span and work are O(n^{1.1})
+Both are root dominated so the span and work are $O(n^{1.1})$
 
 Which algorithm to choose?
 
