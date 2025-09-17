@@ -46,11 +46,11 @@ The upper bound is $O(n^{\log_6 2})$.
 $a = 6$, $b = 4$, and $f(n) = n$
 
 Height: 
-  Subproblem size at level `i` is `n/4^i`.  Stop when it is `1`:
+  Subproblem size at level `i` is $n/4^i$.  Stop when it is `1`:
   $n/4^h = 1  \;\Rightarrow\;  h = \log_4 n$.
 
 Cost per level:
-  Level `i` has `6^i` nodes, each with `O(n/4^i)` work, so
+  Level `i` has $6^i$ nodes, each with $O(n/4^i)$ work, so
   $Cost(i) = 6^i * O(n/4^i) = O( n * (6/4)^i ) = O( n * (3/2)^i )$.
 
 It's leaf-dominated since each level increases by a factor of 6/4. So, the upper bound is
